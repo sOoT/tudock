@@ -1,0 +1,33 @@
+@import '../../../../assets/scss/settings';
+
+.filter-settings {
+  margin-top: $global-margin;
+}
+
+select#loadFilter {
+  margin: .4rem 0 0;
+  padding: .4rem 1.5rem .4rem .5rem;
+  height: rem-calc(24);
+  line-height: 1;
+  font-size: rem-calc(11);
+  width: 50%;
+}
+
+.save-button {
+  display: inline-flex;
+  // .button {
+  //   height: 2.4375rem;
+  //   margin-bottom: 1rem;
+  // }
+}
+
+// .filters-row {
+//   margin-bottom: $global-margin;
+//   input, select {
+//     margin: 0;
+//   }
+
+//   .containers {
+//     margin-top: $global-margin;
+//   }
+// }

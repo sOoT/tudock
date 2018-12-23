@@ -1,0 +1,23 @@
+<div class="grid-x">
+  <div class="medium-12 cell">
+    <ul class="tabs" id="result-tabs">
+      <ng-container *ngFor="let row of activeTabs; let i = index">
+        <li 
+          class="tabs-title"
+          [class.is-active]="row._id === activeTab">
+          <a [attr.aria-selected]="row._id === activeTab ? 'true' : ''">
+            <span (click)="showTab(row._id)">{{row._name}}</span> <i class="fa fa-close" (click)="removeTab(i)"></i>
+          </a>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</div>
+
+
+
+<div class="grid-x grid-padding-x tabs-content">
+  <div class="medium-12 cell">
+    <app-tab></app-tab>
+  </div>
+</div>

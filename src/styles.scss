@@ -1,0 +1,27 @@
+@import '../node_modules/foundation-sites/assets/foundation';
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+@import './assets/scss/_settings.scss';
+
+.sidebar {
+  &.is-collapsed {
+    width: 2.5rem;
+    .navigation {
+      display: none;
+      &-title {
+        display: none;
+      }
+    }
+  }
+}
+
+.main-content {
+  &.is-collapsed {
+    width: calc(100% - 2.5rem);
+  }
+}
+
+.ngx-datatable.material .datatable-header .datatable-header-cell {
+  font-size: rem-calc(9);
+}

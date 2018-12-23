@@ -1,0 +1,16 @@
+<div class="grid-x">
+  <div class="sidebar" [ngClass]="menuClosed ? 'medium-1 cell' : 'medium-2 cell'"  [class.is-collapsed]="menuClosed">
+    <app-navigation></app-navigation>
+    <span class="collapse-menu" (click)="menuClosed = !menuClosed">
+      <i [ngClass]="menuClosed ? 'fa fa-angle-double-right' : 'fa fa-angle-double-left'"></i>
+    </span>
+  </div>
+
+  <div [ngClass]="menuClosed ? 'medium-11 cell' : 'medium-10 cell'" [class.is-collapsed]="menuClosed" class="main-content">
+    <div class="grid-x grid-padding-x">
+      <div class="medium-12 cell">
+        <app-tabs></app-tabs>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="grid-x grid-padding-x align-middle filter-settings">
+  <div class="medium-6 cell">
+    <i class="fa fa-save"></i> Save Column Settings
+  </div>
+  <div class="medium-6 cell text-right">
+    <div class="grid-x grid-padding-x align-right align-middle">
+      <div class="medium-7 cell text-right">
+        <select name="loadFilter" id="loadFilter" [(ngModel)]="selectedFilterOption" (change)="onSelectUpdate($event)">
+          <option value="" disabled selected hidden>Please Select Filter</option>
+          <option value="{{filter.filterName}}" *ngFor="let filter of filters">{{filter.filterName}}</option>
+        </select>
+    
+        <ul class="menu horizontal save-button">
+          <li><a (click)="saveFilter()"><i class="fa fa-save"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grid-container filters-row">
+  <div class="grid-x grid-padding-x align-middle">
+    <div class="medium-3 cell">
+      <select [(ngModel)]="selectedOption" name="columns" id="columns">
+        <ng-container *ngFor="let column of columns; let i = index">
+          <option [ngValue]="column.slug">{{column.name}}</option>
+        </ng-container>
+      </select>
+    </div>
+    <div class="medium-3 cell">
+      <input type='text' placeholder='Type to filter the column...' (keyup)='updateFilter($event)' [(ngModel)]="inputValue" #inputOfFilter/>
+    </div>
+  </div>
+</div>
+
+
+<ngx-datatable class="material striped" [columns]="columns" [rows]="rows" [columnMode]="'force'" [headerHeight]="50"
+  [footerHeight]="50" [rowHeight]="50">
+</ngx-datatable>

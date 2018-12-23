@@ -1,0 +1,14 @@
+@import '../../../assets/scss/settings';
+
+
+
+.tabs-title {
+  position: relative;
+  a {
+    i {
+      position: absolute;
+      top: .5rem;
+      right: .5rem;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<div class="grid-x" id="sidebar">
+  <div class="medium-12 cell">
+    <h2 class="navigation-title">Navigation</h2>
+
+    <ul class="vertical menu navigation">
+      <li *ngFor="let mainCategory of data; let i = index">
+        <a (click)="collapseNested(i)" class="main-category"><i [ngClass]="mainCategory.slug ? 'fa fa-folder-open fa-fw' : 'fa fa-folder fa-fw'"></i>
+          {{mainCategory.name}}</a>
+        <ul class="nested vertical menu" [class.is-closed]="!mainCategory.slug">
+          <li *ngFor="let category of mainCategory.categories; let j = index">
+            <a (click)="openTab(i, j, category.name, category.id)">{{category.name}}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

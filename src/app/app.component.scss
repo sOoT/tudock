@@ -1,0 +1,11 @@
+@import '../assets/scss/settings';
+
+.sidebar {
+  position: relative;
+  .collapse-menu {
+    position: absolute;
+    right: 1rem;
+    top: .4rem;
+    color: $white;
+  }
+}
