@@ -1,8 +1,5 @@
-import { Component, OnInit, ViewChild, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
-import { NavigationComponent } from 'src/app/navigation/navigation.component';
-import { FiltersService } from 'src/app/shared/filters.service';
-import { TabComponent } from './tab/tab.component';
 
 @Component({
   selector: 'app-tabs',
@@ -23,18 +20,9 @@ export class TabsComponent implements OnInit {
 
   activeTab: any;
 
-
-
-  selectedValue: any;
-
-
-  @ViewChild(NavigationComponent) navigationComponent: NavigationComponent;
-  @ViewChild(TabComponent) tabComponent: TabComponent;
-
-  constructor(private dataStorageService: DataStorageService, private filtersService: FiltersService) { }
+  constructor(private dataStorageService: DataStorageService) { }
 
   ngOnInit() {
-
 
     this.dataStorageService.tabChanged.subscribe(
       (response) => {
@@ -48,7 +36,6 @@ export class TabsComponent implements OnInit {
       }
     );
   }
-
 
   showTab(id) {
     // this.subCategoryArray = [];

@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { DataStorageService } from './shared/data-storage.service';
-import { GroupByPipe } from './shared/group-by.pipe';
 import { TabsComponent } from './dashboard/tabs/tabs.component';
 import { TabComponent } from './dashboard/tabs/tab/tab.component';
 import { FormsModule } from '@angular/forms';
@@ -17,7 +16,6 @@ import { FiltersService } from './shared/filters.service';
   declarations: [
     AppComponent,
     NavigationComponent,
-    GroupByPipe,
     TabsComponent,
     TabComponent
   ],

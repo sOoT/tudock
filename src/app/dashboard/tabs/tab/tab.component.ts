@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Output, EventEmitter, Input, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { DataStorageService } from 'src/app/shared/data-storage.service';
 import { DatatableComponent } from '@swimlane/ngx-datatable';
 import { FiltersService } from 'src/app/shared/filters.service';
@@ -16,9 +16,6 @@ export class TabComponent implements OnInit {
   rows: any;
 
   temp = [];
-
-  enableSummary = true;
-  summaryPosition = 'top';
 
   @Input() val: any;
   @Input() selectedValue: any;
@@ -39,10 +36,6 @@ export class TabComponent implements OnInit {
   filter: any;
 
   inputValue: any;
-
-  filterToDelete: any;
-
-  @ViewChild('inputOfFilter') public inputOfFilter: ElementRef;
 
   public selectedColumn = 'groupName';
 
@@ -209,19 +202,5 @@ export class TabComponent implements OnInit {
           }
         );
     }
-  }
-
-  deleteFilter() {
-    const selectedValue = this.selectedFilterOption.toString();
-    this.dataStorageService.getFilters()
-    .subscribe(
-      (filters) => {
-        this.filterToDelete = Object.values(filters);
-        this.filterToDelete = this.filterToDelete.map(
-          (data) => data['filterName']
-        ).indexOf(selectedValue);
-      }
-    );
-    this.filtersService.deleteFilter(this.filterToDelete);
   }
 }

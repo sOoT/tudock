@@ -13,8 +13,6 @@ export class DataStorageService {
   tabDeleted = new Subject();
   tabActivated = new Subject();
 
-  dataArray: any;
-
   constructor(private http: HttpClient, private filtersService: FiltersService) { }
 
   getData() {
@@ -29,10 +27,6 @@ export class DataStorageService {
   postData() {
     return this.http.post('https://tudock-41188.firebaseio.com/filterSource.json', this.filtersService.getFilters());
   }
-
-  // deleteData(index: number) {
-  //   return this.http.delete('https://tudock-41188.firebaseio.com/filterSource.json', this.filtersService.deleteFilter(index));
-  // }
 
   getFilters() {
     return this.http

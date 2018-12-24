@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { DataStorageService } from './data-storage.service';
 import { Filter } from './filter.model';
 import { Subject } from 'rxjs/Subject';
 
@@ -23,12 +21,5 @@ export class FiltersService {
   getFilters() {
     return this.filters;
   }
-
-  deleteFilter(index: number) {
-    this.filters.splice(index, 1);
-    this.filterChanged.next(this.filters.slice());
-    console.log(this.filters);
-  }
-
 
 }

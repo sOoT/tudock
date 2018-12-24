@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataStorageService } from '../shared/data-storage.service';
-import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-navigation',
@@ -10,13 +9,8 @@ import { FormControl } from '@angular/forms';
 export class NavigationComponent implements OnInit {
   activeTabs = [];
   data: any;
-  isClosed = false;
   @Input() menuClosed = false;
-  current = 0;
   @Input() tabChange: any;
-  selected = new FormControl(0);
-
-  isActive = false;
 
   activeTabAmount = 0;
 
@@ -24,10 +18,7 @@ export class NavigationComponent implements OnInit {
 
   constructor(private dataStorageService: DataStorageService) { }
 
-
   ngOnInit() {
-    this.dataStorageService.dataArray = [];
-
     this.dataStorageService.getData()
       .subscribe(
         (response) => {
@@ -42,7 +33,6 @@ export class NavigationComponent implements OnInit {
           );
         }
       );
-
 
     this.dataStorageService.tabDeleted.subscribe(
       (response: number) => {
